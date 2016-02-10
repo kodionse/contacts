@@ -12,8 +12,8 @@ public class ContactsConfigurationHealthCheck extends HealthCheck {
 
     @Override
     protected Result check() throws Exception {
-        if (!configuration.getTest().equals("yep")) {
-            return Result.unhealthy("test must be equal to 'yep'");
+        if (configuration.getDataSourceFactory() != null) {
+            return Result.unhealthy("No data source configured");
         }
         return Result.healthy();
     }

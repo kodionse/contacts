@@ -10,14 +10,6 @@ import javax.validation.constraints.NotNull;
 
 public class ContactsConfiguration extends Configuration {
 
-    @NotEmpty
-    private String test;
-
-    @JsonProperty
-    public String getTest() {
-        return test;
-    }
-
     @Valid
     @NotNull
     @JsonProperty

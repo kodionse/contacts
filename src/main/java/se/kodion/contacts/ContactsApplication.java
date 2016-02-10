@@ -43,7 +43,7 @@ public class ContactsApplication extends Application<ContactsConfiguration> {
         logger.debug("Adding health check...");
         ContactsConfigurationHealthCheck healthCheck =
                 new ContactsConfigurationHealthCheck(configuration);
-        environment.healthChecks().register("test", healthCheck);
+        environment.healthChecks().register("contactsHealthCheck", healthCheck);
 
         // Init database connection
         logger.debug("Connecting to mysql database...");
