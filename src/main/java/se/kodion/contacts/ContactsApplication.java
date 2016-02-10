@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.kodion.contacts.dao.ContactDAO;
 import se.kodion.contacts.health.ContactsConfigurationHealthCheck;
+import se.kodion.contacts.rest.CORSResponseFilter;
 import se.kodion.contacts.rest.ContactsResource;
 
 public class ContactsApplication extends Application<ContactsConfiguration> {
@@ -52,6 +53,7 @@ public class ContactsApplication extends Application<ContactsConfiguration> {
 
         // Init rest API
         logger.debug("Initializing Rest API...");
+        environment.jersey().register(CORSResponseFilter.class);
         environment.jersey().register(new ContactsResource(contactDAO));
     }
 }

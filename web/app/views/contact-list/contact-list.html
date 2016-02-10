@@ -1,0 +1,11 @@
+<div>
+
+    <h1>{{pageTitle}}</h1>
+
+    <ul>
+        <li ng-repeat="contact in contacts">
+            <a href="#/contact/{{contact.id}}">{{contact.firstName}} {{contact.lastName}}</a>
+        </li>
+    </ul>
+
+</div>
