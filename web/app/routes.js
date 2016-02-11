@@ -1,19 +1,26 @@
-app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider
+angular.module('contactsApp')
+    .config(['$routeProvider', function($routeProvider) {
 
-        .when('/', {
-            templateUrl: 'views/contact-list/contact-list.html',
-            controller: 'ContactListController'
-        })
+        $routeProvider
 
-        .when('/contact/:contactId', {
-            templateUrl: 'views/contact-details/contact-details.html',
-            controller: 'ContactDetailsController'
-        })
+            .when('/', {
+                templateUrl: 'pages/contact-list/contact-list.html',
+                controller: 'ContactListController'
+            })
 
-        .when('/error', {
-            templateUrl: 'views/other/404.html'
-        })
+            .when('/contact/:contactId', {
+                templateUrl: 'pages/contact-details/contact-details.html',
+                controller: 'ContactDetailsController',
+            })
 
-        .otherwise({redirectTo: '/error'});
+            .when('/about', {
+                templateUrl: 'pages/about/about.html',
+                controller: 'AboutController'
+            })
+
+            .when('/error', {
+                templateUrl: 'pages/other/404.html'
+            })
+
+            .otherwise({redirectTo: '/error'});
 }]);
