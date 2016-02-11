@@ -9,10 +9,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-route.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.min.js"></script>
-    <!-- boostrap / jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <!-- bootstrap -->
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
     <!-- main app modules -->
     <script src="app.js"></script>
     <script src="routes.js"></script>
@@ -21,9 +19,9 @@
     <script src="pages/contact-list/contact-list.js"></script>
     <script src="pages/contact-details/contact-details.js"></script>
     <script src="pages/about/about.js"></script>
-
     <!-- styles -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-csp.css" rel="stylesheet">
     <link href="app.css" rel="stylesheet">
 
 </head>
@@ -42,7 +40,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Contacts</a></li>
+                <li class="active"><a href="#/">Contacts</a></li>
                 <li><a ng-href="#about">About</a></li>
                 <li><a ng-href="#help">Help</a></li>
             </ul>

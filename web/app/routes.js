@@ -10,7 +10,7 @@ angular.module('contactsApp')
 
             .when('/contact/:contactId', {
                 templateUrl: 'pages/contact-details/contact-details.html',
-                controller: 'ContactDetailsController',
+                controller: 'ContactDetailsController'
             })
 
             .when('/about', {
