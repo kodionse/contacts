@@ -4,7 +4,8 @@
   "description": "Kodion Contacts",
   "main": "app.js",
   "dependencies": {
-    "angular-ui-bootstrap": "^1.1.2"
+    "angular-ui-bootstrap": "^1.1.2",
+    "jquery": "^2.2.0"
   },
   "devDependencies": {},
   "scripts": {

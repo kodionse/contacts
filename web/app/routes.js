@@ -22,5 +22,9 @@ angular.module('contactsApp')
                 templateUrl: 'pages/other/404.html'
             })
 
+            .when('/login', {
+                templateUrl: 'login.html'
+            })
+
             .otherwise({redirectTo: '/error'});
 }]);

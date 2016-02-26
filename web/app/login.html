@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="250601506540-5md5fbnqno5r9400ggmibven2pve5ve2.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+
+</head>
+<body>
+<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+<script>
+    function onSignIn(googleUser) {
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/login/google",
+            data: googleUser.getAuthResponse().id_token,
+            success: function(data) {
+                document.location.href = '/#/';
+            },
+            error: function(data) {
+                alert(data);
+            }
+        });
+    }
+</script>
+</body>
+</html>

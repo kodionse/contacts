@@ -1,0 +1,19 @@
+Google login:
+
+client:
+Login page
+Sign in to google.com
+send token to backend
+
+server:
+create/update user in database
+create session and token in database
+reply with token back to client
+
+client:
+save token in user service
+use token in the header for all API requests
+
+server:
+when an API request comes in, check for session token and validate
+

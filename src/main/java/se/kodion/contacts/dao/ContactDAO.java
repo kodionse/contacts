@@ -17,6 +17,9 @@ public interface ContactDAO {
     @SqlQuery("SELECT id, firstName, lastName FROM contacts WHERE id = :id")
     Contact findContactById(@Bind("id") long id);
 
+    @SqlQuery("SELECT id, firstName, lastName FROM contacts WHERE googleId = :googleId")
+    Contact findContactByGoogleId(@Bind("googleId") String googleId);
+
     @SqlQuery("SELECT * FROM contacts ORDER BY id ASC")
     Iterator<Contact> getAllContacts();
 

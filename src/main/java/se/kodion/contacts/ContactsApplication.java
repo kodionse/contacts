@@ -9,9 +9,13 @@ import org.skife.jdbi.v2.DBI;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import se.kodion.contacts.dao.ContactDAO;
+import se.kodion.contacts.dao.SessionDAO;
+import se.kodion.contacts.dao.UserDAO;
 import se.kodion.contacts.health.ContactsConfigurationHealthCheck;
 import se.kodion.contacts.rest.CORSResponseFilter;
 import se.kodion.contacts.rest.ContactsResource;
+import se.kodion.contacts.rest.LoginResource;
+import se.kodion.contacts.session.SessionManager;
 
 public class ContactsApplication extends Application<ContactsConfiguration> {
 
@@ -49,11 +53,17 @@ public class ContactsApplication extends Application<ContactsConfiguration> {
         logger.debug("Connecting to mysql database...");
         DBIFactory factory = new DBIFactory();
         DBI jdbi = factory.build(environment, configuration.getDataSourceFactory(), "mysql");
+
         ContactDAO contactDAO = jdbi.onDemand(ContactDAO.class);
+        UserDAO userDAO = jdbi.onDemand(UserDAO.class);
+        SessionDAO sessionDAO = jdbi.onDemand(SessionDAO.class);
+
+        SessionManager sessionManager = new SessionManager(sessionDAO);
 
         // Init rest API
         logger.debug("Initializing Rest API...");
         environment.jersey().register(CORSResponseFilter.class);
+        environment.jersey().register(new LoginResource(sessionManager, userDAO));
         environment.jersey().register(new ContactsResource(contactDAO));
     }
 }

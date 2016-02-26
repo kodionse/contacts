@@ -11,6 +11,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-resource.min.js"></script>
     <!-- bootstrap -->
     <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <!-- google sign in integration -->
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
     <!-- main app modules -->
     <script src="app.js"></script>
     <script src="routes.js"></script>
@@ -43,6 +45,15 @@
                 <li class="active"><a href="#/">Contacts</a></li>
                 <li><a ng-href="#about">About</a></li>
                 <li><a ng-href="#help">Help</a></li>
+                <li><a href="#" onclick="signOut();">Sign out</a>
+                    <script>
+                        function signOut() {
+                            var auth2 = gapi.auth2.getAuthInstance();
+                            auth2.signOut().then(function () {
+                                console.log('User signed out.');
+                            });
+                        }
+                    </script></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
